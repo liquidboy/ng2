@@ -1,4 +1,4 @@
-﻿/// <binding AfterBuild='compile, copy, min' Clean='clean' />
+﻿/// <binding AfterBuild='default' Clean='clean' />
 "use strict";
 
 var gulp = require("gulp"),
@@ -8,7 +8,15 @@ var gulp = require("gulp"),
     concat = require("gulp-concat"),
     cssmin = require("gulp-cssmin"),
     replace = require("gulp-replace-task"),
-    uglify = require("gulp-uglify");
+    uglify = require("gulp-uglify"),
+
+    less = require("gulp-less"),
+    runseq = require("run-sequence"),
+    typescript = require("gulp-typescript"),
+    sourcemaps = require("gulp-sourcemaps"),
+    fs = require("fs"),
+    modernizr = require("gulp-modernizr"),
+    pkg = require("./package.json");
 
 var paths = {
     webroot: "./wwwroot/",
@@ -30,7 +38,12 @@ gulp.task("compile", [""]);
 gulp.task("clean", ["clean:js", "clean:css", "clean:libs", "clean:themes", "clean:assets", "clean:root"]);
 gulp.task("refresh", [""]);
 
-gulp.task("default", [""]);
+
+//ensure default runs in a particular sequence
+gulp.task("default:step1", ["copy"]);
+gulp.task("default:step2", function (cb) { runseq("default:step1", ["compile"], cb); });
+gulp.task("default:step3", function (cb) { runseq("default:step2", ["min"], cb); });
+gulp.task("default", ["default:step3"]);
 
 
 

@@ -14,6 +14,8 @@
     "gulp-install": "0.6.0",
     "gulp-replace-task": "0.11.0",
     "run-sequence": "1.1.5",
+    "fs-extra": "^0.26.5",
+    "modernizr": "3.3.1",
     "del": "2.2.0",
     "rimraf": "2.2.8",
     "typings": "^0.6.8",
