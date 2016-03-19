@@ -38,7 +38,7 @@ namespace NG2.Bootstrap.Web
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
             
-            services.AddMvc();
+            //services.AddMvc();
 
         }
 
