@@ -1,6 +1,27 @@
 {
   "name": "ASP.NET",
   "version": "0.0.0",
+
+  "dependencies": {
+    "modernizr": "3.3.1",
+    "jquery": "2.2.0",
+    "jquery-validation": "1.14.0",
+    "jquery-validation-unobtrusive": "3.2.5",
+    "react": "0.14.7",
+    "angular2": "2.0.0-beta.8",
+    "systemjs": "0.19.22",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "es5-shim": "4.4.1",
+    "rxjs": "5.0.0-beta.2",
+    "zone.js": "0.5.15",
+    "reflect-metadata": "0.1.2",
+    "events": "^1.0.2",
+    "rimraf": "2.2.8",
+    "flux": "^2.1.1",
+    "moment": "2.12.0"
+  },
+
   "devDependencies": {
     "gulp": "3.8.11",
     "gulp-concat": "2.5.2",
@@ -15,9 +36,8 @@
     "gulp-replace-task": "0.11.0",
     "run-sequence": "1.1.5",
     "fs-extra": "^0.26.5",
-    "modernizr": "3.3.1",
     "del": "2.2.0",
-    "rimraf": "2.2.8",
+    
     "typings": "^0.6.8",
     "glob": "^6.0.4"
   }

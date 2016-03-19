@@ -211,3 +211,4 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 src/ng2/src/NG2.Bootstrap.Web/wwwroot/*
+src/NG2.Bootstrap.Web/wwwroot/*

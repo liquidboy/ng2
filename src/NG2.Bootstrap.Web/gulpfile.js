@@ -33,7 +33,7 @@ paths.css = paths.webroot + "css/**/*.css";
 //==========
 
 gulp.task("min", [""]);
-gulp.task("copy", ["copy:static"]);
+gulp.task("copy", ["copy:static", "copy:node:libs:default", "copy:node:libs:ng2"]);
 gulp.task("compile", [""]);
 gulp.task("clean", ["clean:js", "clean:css", "clean:libs", "clean:themes", "clean:assets", "clean:root"]);
 gulp.task("refresh", [""]);
@@ -103,3 +103,79 @@ gulp.task("copy:static", function (cb) {
 
     cb();
 });
+
+gulp.task("copy:node:libs:default", function (cb) {
+
+    if (!fs.existsSync('wwwroot/libs/jquery'))
+        gulp.src(["node_modules/jquery/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/jquery"));
+
+    if (!fs.existsSync('wwwroot/libs/jquery-validation'))
+        gulp.src(["node_modules/jquery-validation/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/jquery-validation"));
+
+    if (!fs.existsSync('wwwroot/libs/jquery-validation-unobtrusive'))
+        gulp.src(["node_modules/jquery-validation-unobtrusive/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/jquery-validation-unobtrusive"));
+
+    if (!fs.existsSync('wwwroot/libs/react'))
+        gulp.src(["node_modules/react/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/react"));
+
+
+    cb();
+});
+
+gulp.task("copy:node:libs:ng2", function (cb) {
+    if (!fs.existsSync('wwwroot/libs/angular2'))
+        gulp.src(["node_modules/angular2/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/angular2"));
+
+    if (!fs.existsSync('wwwroot/libs/es6-promise'))
+        gulp.src(["node_modules/es6-promise/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/es6-promise"));
+
+    if (!fs.existsSync('wwwroot/libs/es6-shim'))
+        gulp.src(["node_modules/es6-shim/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/es6-shim"));
+
+    if (!fs.existsSync('wwwroot/libs/es5-shim'))
+        gulp.src(["node_modules/es5-shim/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/es5-shim"));
+
+    if (!fs.existsSync('wwwroot/libs/reflect-metadata'))
+        gulp.src(["node_modules/reflect-metadata/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/reflect-metadata"));
+
+    if (!fs.existsSync('wwwroot/libs/rimraf'))
+        gulp.src(["node_modules/rimraf/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/rimraf"));
+
+    if (!fs.existsSync('wwwroot/libs/rxjs'))
+        gulp.src(["node_modules/rxjs/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/rxjs"));
+
+    if (!fs.existsSync('wwwroot/libs/systemjs'))
+        gulp.src(["node_modules/systemjs/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/systemjs"));
+
+    if (!fs.existsSync('wwwroot/libs/zone.js'))
+        gulp.src(["node_modules/zone.js/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/zone.js"));
+
+    if (!fs.existsSync('wwwroot/libs/flux'))
+        gulp.src(["node_modules/flux/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/flux"));
+
+    if (!fs.existsSync('wwwroot/libs/events'))
+        gulp.src(["node_modules/events/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/events"));
+
+    if (!fs.existsSync('wwwroot/libs/moment'))
+        gulp.src(["node_modules/moment/**/*.js"])
+            .pipe(gulp.dest("wwwroot/libs/moment"));
+
+
+    cb();
+});
+
