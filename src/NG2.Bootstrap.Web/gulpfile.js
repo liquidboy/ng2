@@ -34,7 +34,7 @@ paths.css = paths.webroot + "css/**/*.css";
 
 gulp.task("min", [""]);
 gulp.task("copy", ["copy:static", "copy:node:libs:default", "copy:node:libs:ng2"]);
-gulp.task("compile", ["compile:less:rootApp", "compile:ts:rootApp"]);
+gulp.task("compile", ["compile:less:rootApp", "compile:ts:rootApp", "compile:modernizr:all"]);
 gulp.task("clean", ["clean:js", "clean:css", "clean:libs", "clean:themes", "clean:assets", "clean:root"]);
 gulp.task("refresh", [""]);
 
@@ -214,4 +214,25 @@ gulp.task("compile:ts:rootApp", function (cb) {
         .pipe(gulp.dest("wwwroot/rootApp/"));
 
     cb();
+});
+
+
+gulp.task("compile:modernizr:all", function (cb) {
+    return gulp.src(["node_modules/modernizr/*/*.js"])
+    .pipe(modernizr({
+        tests: [
+            'blobconstructor',
+            'contenteditable',
+            'vml',
+            'webgl',
+            'touch',
+            [
+              "devicemotion",
+              "deviceorientation"
+            ],
+            "framed"
+        ],
+        options: ["setClasses"]
+    }))
+    .pipe(gulp.dest("wwwroot/js/"));
 });
