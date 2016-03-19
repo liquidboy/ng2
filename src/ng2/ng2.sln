@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CF443552-84AA-4C46-8C57-A1E5A8C15B5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DB616A48-6D15-4F08-B76B-75BAE0C16EE9}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NG2.Bootstrap.Web", "src\NG2.Bootstrap.Web\NG2.Bootstrap.Web.xproj", "{CB42E9B6-3C8E-42F6-8E0B-1BC5914C976C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB42E9B6-3C8E-42F6-8E0B-1BC5914C976C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB42E9B6-3C8E-42F6-8E0B-1BC5914C976C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB42E9B6-3C8E-42F6-8E0B-1BC5914C976C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB42E9B6-3C8E-42F6-8E0B-1BC5914C976C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CB42E9B6-3C8E-42F6-8E0B-1BC5914C976C} = {CF443552-84AA-4C46-8C57-A1E5A8C15B5C}
+	EndGlobalSection
+EndGlobal
