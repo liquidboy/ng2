@@ -34,7 +34,7 @@ paths.css = paths.webroot + "css/**/*.css";
 
 gulp.task("min", [""]);
 gulp.task("copy", ["copy:static", "copy:node:libs:default", "copy:node:libs:ng2"]);
-gulp.task("compile", [""]);
+gulp.task("compile", ["compile:less:rootApp", "compile:ts:rootApp"]);
 gulp.task("clean", ["clean:js", "clean:css", "clean:libs", "clean:themes", "clean:assets", "clean:root"]);
 gulp.task("refresh", [""]);
 
@@ -179,3 +179,39 @@ gulp.task("copy:node:libs:ng2", function (cb) {
     cb();
 });
 
+
+
+
+
+
+
+
+//==========
+//Compile
+//==========
+
+gulp.task("compile:less:rootApp", function (cb) {
+    return gulp.src(["rootApp/**/*.less"])
+    .pipe(less())
+    .pipe(gulp.dest("wwwroot/rootApp/"));
+});
+
+gulp.task("compile:ts:rootApp", function (cb) {
+    var projectts = typescript.createProject("rootApp/tsconfig.json");
+    var projecttsx = typescript.createProject("rootApp/tsconfig.json");
+
+    gulp.src(["rootApp/**/*.ts"])
+        .pipe(sourcemaps.init())
+        .pipe(typescript(projectts))
+        .pipe(sourcemaps.write('.', { includeContent: false, sourceRoot: '' }))
+        .pipe(gulp.dest("wwwroot/rootApp/"));
+
+    gulp.src(["rootApp/**/*.tsx"])
+        .pipe(typescript(projecttsx))
+        .pipe(gulp.dest("wwwroot/rootApp/"));
+
+    gulp.src(["rootApp/**/*.html"])
+        .pipe(gulp.dest("wwwroot/rootApp/"));
+
+    cb();
+});

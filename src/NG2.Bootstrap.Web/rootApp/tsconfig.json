@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noEmitOnError": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es5",
+    "outDir": "../wwwroot/rootApp",
+    "suppressImplicitAnyIndexErrors": true,
+    "jsx": "react"
+  },
+  "exclude": [
+    "node_modules",
+    "typings",
+    "wwwroot"
+  ]
+}

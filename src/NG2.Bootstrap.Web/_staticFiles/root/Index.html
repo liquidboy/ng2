@@ -1,10 +1,62 @@
 ﻿<!DOCTYPE html>
-<html>
+<html class="no-js">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jose's demo NG2 + ASP.NET Core</title>
 </head>
 <body>
-    index.html
+    <root-app>
+        <div class="loading">
+            <span class="loading-text">Loading</span>
+        </div>
+    </root-app>
+
+
+    <script src="/libs/jquery/dist/jquery.js"></script>
+    <script src="/js/modernizr.js"></script>
+
+    <!--EXACT ORDER REQUIRED for ng2 -->
+    <script src="/libs/angular2/ts/src/testing/shims_for_IE.js"></script>
+    <script src="/libs/es5-shim/es5-shim.min.js"></script>
+    <script src="/libs/es6-shim/es6-shim.min.js"></script>
+    <!--<script src="/js/history.js/html4+html5/native.history.js"></script>  <--  pollyfill for IE support of history.pushstate    -->
+    <script src="/libs/systemjs/dist/system-polyfills.src.js"></script>
+    <script src="/libs/angular2/bundles/angular2-polyfills.js"></script>
+
+    <script src="/libs/systemjs/dist/system.src.js"></script>
+
+    <script src="/libs/rxjs/bundles/Rx.js"></script>
+    <script src="/libs/angular2/bundles/angular2.dev.js"></script>
+    <script src="/libs/angular2/bundles/router.dev.js"></script>
+
+    <script src="/libs/react/dist/react.js"></script>
+
+
+
+    <script>
+        System.config({
+            baseURL: '/libs',
+            defaultJSExtensions: true,
+            warnings: true,
+            urlArgs: 'v=1',
+            meta: {
+                "/rootApp/*.js": { scriptLoad: true }
+            }
+        });
+
+        var systemLocate = System.locate;
+        System.locate = function(load) {
+            var System = this;
+            return Promise.resolve(systemLocate.call(this, load))
+                .then(function(address) {
+                    if (address.lastIndexOf("html.js") > -1) return address;
+                    return address + '?' + System.urlArgs;
+                });
+        };
+
+        System.import('/rootApp/boot.js')
+            .then(null, console.error.bind(console));
+    </script>
 </body>
 </html>
