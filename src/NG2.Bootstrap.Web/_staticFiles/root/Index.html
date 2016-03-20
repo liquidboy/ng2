@@ -40,8 +40,11 @@
             defaultJSExtensions: true,
             warnings: true,
             urlArgs: 'v=1',
-            meta: {
-                "/rootApp/*.js": { scriptLoad: true }
+            packages: {
+                rootApp: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
             }
         });
 

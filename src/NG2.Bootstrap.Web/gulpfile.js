@@ -28,6 +28,11 @@ paths.minJs = paths.webroot + "js/**/*.min.js";
 paths.css = paths.webroot + "css/**/*.css";
 
 
+
+
+
+
+
 //==========
 //Bound tasks
 //==========
@@ -44,6 +49,11 @@ gulp.task("default:step1", ["copy"]);
 gulp.task("default:step2", function (cb) { runseq("default:step1", ["compile"], cb); });
 gulp.task("default:step3", function (cb) { runseq("default:step2", ["min"], cb); });
 gulp.task("default", ["default:step3"]);
+
+
+
+
+
 
 
 
