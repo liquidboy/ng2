@@ -38,7 +38,7 @@ paths.css = paths.webroot + "css/**/*.css";
 //==========
 
 gulp.task("min", [""]);
-gulp.task("copy", ["copy:static", "copy:node:libs:default", "copy:node:libs:ng2"]);
+gulp.task("copy", ["copy:static", "copy:node:libs:default", "copy:node:libs:ng2", "copy:ts"]);
 gulp.task("compile", ["compile:less:rootApp", "compile:ts:rootApp", "compile:modernizr:all"]);
 gulp.task("clean", ["clean:js", "clean:css", "clean:libs", "clean:themes", "clean:assets", "clean:root"]);
 gulp.task("refresh", [""]);
@@ -188,6 +188,14 @@ gulp.task("copy:node:libs:ng2", function (cb) {
 
     cb();
 });
+
+gulp.task("copy:ts", function (cb) {
+    gulp.src(["rootApp/**/*.ts"])
+        .pipe(gulp.dest("wwwroot/rootApp/"));
+
+    cb();
+});
+
 
 
 

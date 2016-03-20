@@ -1,7 +1,9 @@
 {
   "name": "ASP.NET",
   "version": "0.0.0",
-
+  "scripts": {
+    "test": "karma start test/karma.conf.js"
+  },
   "dependencies": {
     "modernizr": "3.3.1",
     "jquery": "2.2.0",
@@ -37,8 +39,20 @@
     "run-sequence": "1.1.5",
     "fs-extra": "^0.26.5",
     "del": "2.2.0",
-    
+
     "typings": "^0.6.8",
-    "glob": "^6.0.4"
+    "glob": "^6.0.4",
+
+    "angular-cli": "^0.0.24",
+    "karma": "^0.13.15",
+    "karma-browserstack-launcher": "^0.1.7",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-dart": "^0.3.0",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.6",
+    "karma-sauce-launcher": "^0.2.14",
+    "jasmine-core": "^2.3.4",
+    "typescript": "^1.7.5"
+
   }
 }
