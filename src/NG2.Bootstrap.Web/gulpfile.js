@@ -9,7 +9,7 @@ var gulp = require("gulp"),
     cssmin = require("gulp-cssmin"),
     replace = require("gulp-replace-task"),
     uglify = require("gulp-uglify"),
-
+    jspm = require("gulp-jspm"),
     less = require("gulp-less"),
     runseq = require("run-sequence"),
     typescript = require("gulp-typescript"),
@@ -253,4 +253,30 @@ gulp.task("compile:modernizr:all", function (cb) {
         options: ["setClasses"]
     }))
     .pipe(gulp.dest("wwwroot/js/"));
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//http://stackoverflow.com/questions/33683885/angular2-with-asp-net-5
+//==========
+//Bundle
+//==========
+
+gulp.task("bundle:app:all", function (cb) {
+    return gulp.src("./wwwroot/rootApp/boot.js")
+      .pipe(jspm({ selfExecutingBundle: true }))
+      .pipe(gulp.dest("./wwwroot/rootApp-build/"));
 });

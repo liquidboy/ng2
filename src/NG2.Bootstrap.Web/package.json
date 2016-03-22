@@ -1,8 +1,11 @@
 {
   "name": "ASP.NET",
   "version": "0.0.0",
+  "main": "./wwwroot/rootApp/boot.ts",
   "scripts": {
-    "test": "karma start test/karma.conf.js"
+    "test": "karma start test/karma.conf.js",
+    "postinstall": "jspm install",
+    "postinstallxxx": "node ./node_modules/jspm/cli.js install -y"
   },
   "dependencies": {
     "modernizr": "3.3.1",
@@ -23,27 +26,25 @@
     "flux": "^2.1.1",
     "moment": "2.12.0"
   },
-
   "devDependencies": {
+    "angular-cli": "^0.0.24",
+    "del": "2.2.0",
+    "fs-extra": "^0.26.5",
+    "glob": "^6.0.4",
     "gulp": "3.8.11",
     "gulp-concat": "2.5.2",
     "gulp-cssmin": "0.1.7",
-    "gulp-uglify": "1.2.0",
-    "gulp-typescript": "2.10.0",
-    "gulp-sourcemaps": "1.6.0",
-    "gulp-react": "3.1.0",
+    "gulp-install": "0.6.0",
+    "gulp-jspm": "0.5.8",
     "gulp-less": "3.0.5",
     "gulp-modernizr": "1.0.0-alpha",
-    "gulp-install": "0.6.0",
+    "gulp-react": "3.1.0",
     "gulp-replace-task": "0.11.0",
-    "run-sequence": "1.1.5",
-    "fs-extra": "^0.26.5",
-    "del": "2.2.0",
-
-    "typings": "^0.6.8",
-    "glob": "^6.0.4",
-
-    "angular-cli": "^0.0.24",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-typescript": "2.10.0",
+    "gulp-uglify": "1.2.0",
+    "jasmine-core": "^2.3.4",
+    "jspm": "^0.16.31",
     "karma": "^0.13.15",
     "karma-browserstack-launcher": "^0.1.7",
     "karma-chrome-launcher": "^0.2.1",
@@ -51,8 +52,28 @@
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.6",
     "karma-sauce-launcher": "^0.2.14",
-    "jasmine-core": "^2.3.4",
-    "typescript": "^1.7.5"
-
+    "plugin-typescript": "4.0.1",
+    "run-sequence": "1.1.5",
+    "typescript": "^1.7.5",
+    "typings": "^0.6.8"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "wwwroot"
+    },
+    "dependencies": {
+      "angular2": "npm:angular2@^2.0.0-beta.8",
+      "es6-shim": "npm:es6-shim@0.33.13",
+      "reflect-metadata": "npm:reflect-metadata@0.1.2",
+      "rxjs": "npm:rxjs@5.0.0-beta.2",
+      "ts": "npm:plugin-typescript@^4.0.1",
+      "zone.js": "npm:zone.js@0.5.15"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4",
+      "typescript": "npm:typescript@^1.6.2"
+    }
   }
 }
