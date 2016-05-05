@@ -9,7 +9,7 @@ var gulp = require("gulp"),
     cssmin = require("gulp-cssmin"),
     replace = require("gulp-replace-task"),
     uglify = require("gulp-uglify"),
-    jspm = require("gulp-jspm"),
+    //jspm = require("gulp-jspm"),
     less = require("gulp-less"),
     runseq = require("run-sequence"),
     typescript = require("gulp-typescript"),
@@ -275,8 +275,8 @@ gulp.task("compile:modernizr:all", function (cb) {
 //Bundle
 //==========
 
-gulp.task("bundle:app:all", function (cb) {
-    return gulp.src("./wwwroot/rootApp/boot.js")
-      .pipe(jspm({ selfExecutingBundle: true }))
-      .pipe(gulp.dest("./wwwroot/rootApp-build/"));
-});
+//gulp.task("bundle:app:all", function (cb) {
+//    return gulp.src("./wwwroot/rootApp/boot.js")
+//      .pipe(jspm({ selfExecutingBundle: true }))
+//      .pipe(gulp.dest("./wwwroot/rootApp-build/"));
+//});
